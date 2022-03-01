@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIDemog.Views.Inicio">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lvZonas" HasUnevenRows="True"
+                      SeparatorColor="CornflowerBlue" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="Zona básica:"></Label>
+                                <Label Text="{Binding NombreZona}"></Label>
+                                <Label Text="Habitantes menores:"></Label>
+                                <Label Text="{Binding HabMenores}"></Label>
+                                <Label Text="Habitantes totales:"></Label>
+                                <Label Text="{Binding HabTotales}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
