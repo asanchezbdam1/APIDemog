@@ -12,8 +12,8 @@
                             <StackLayout>
                                 <Label Text="Zona básica:"></Label>
                                 <Label Text="{Binding NombreZona}"></Label>
-                                <Label Text="Habitantes menores:"></Label>
-                                <Label Text="{Binding HabMenores}"></Label>
+                                <Label Text="Habitantes mayores de 14 años:"></Label>
+                                <Label Text="{Binding HabMayores}"></Label>
                                 <Label Text="Habitantes totales:"></Label>
                                 <Label Text="{Binding HabTotales}"></Label>
                             </StackLayout>

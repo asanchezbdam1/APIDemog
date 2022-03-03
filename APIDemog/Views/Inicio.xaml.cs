@@ -17,6 +17,7 @@ namespace APIDemog.Views
         {
             InitializeComponent();
             Actualizar();
+            HttpHelper.GetDatosViviendas();
         }
 
         private async Task Actualizar()

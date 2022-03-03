@@ -26,7 +26,7 @@ namespace APIDemog.DataSource
                         lista.Add(new ZonaBasica()
                         {
                             NombreZona = (string)zb["Zona Básica"],
-                            HabMenores = Convert.ToInt32((string)zb["Habitantes adultos mayores de 14 años"]),
+                            HabMayores = Convert.ToInt32((string)zb["Habitantes adultos mayores de 14 años"]),
                             HabTotales = Convert.ToInt32((string)zb["TOTAL POBLACIÓN"])
                         });
                     }
@@ -44,6 +44,7 @@ namespace APIDemog.DataSource
                 HttpResponseMessage resp = await client.GetAsync("https://datosabiertos.navarra.es/dataset/b5ed4729-1d09-4729-8b71-26ef6e08124f/resource/7bf44c36-6a34-4c12-859e-78b6fbc4e8db/download/solicitudesunidadfamiliar.xml");
                 resp.EnsureSuccessStatusCode();
                 string result = await resp.Content.ReadAsStringAsync();
+                result.ToString();
             }
             return lista;
         }

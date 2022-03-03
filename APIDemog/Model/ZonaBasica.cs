@@ -7,7 +7,7 @@ namespace APIDemog.Model
     public class ZonaBasica
     {
         public string NombreZona { get; set; }
-        public int HabMenores { get; set; }
+        public int HabMayores { get; set; }
         public int HabTotales { get; set; }
     }
 }
