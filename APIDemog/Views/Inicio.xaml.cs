@@ -17,12 +17,17 @@ namespace APIDemog.Views
         {
             InitializeComponent();
             Actualizar();
-            HttpHelper.GetDatosViviendas();
         }
 
         private async Task Actualizar()
         {
             lvZonas.ItemsSource = await HttpHelper.GetDatosPoblacion();
+            rvZonas.IsRefreshing = false;
+        }
+
+        private void rvZonas_Refreshing(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

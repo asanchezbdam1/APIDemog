@@ -6,5 +6,11 @@ namespace APIDemog.Model
 {
     public class Vivienda
     {
+        public string Localidad { get; set; }
+        public string Promotora { get; set; }
+        public int Ofertadas { get; set; }
+        public int Coord_X { get; set; }
+        public int Coord_Y { get; set; }
+        public bool HasCoords { get; set; }
     }
 }

@@ -4,9 +4,27 @@
              x:Class="APIDemog.Views.Viviendas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label>Viviendas sociales para víctimas de terrorismo, violencia de género, exclusión social, etc.</Label>
+            <Label>Desliza hacia abajo para actualizar.</Label>
+            <RefreshView x:Name="rvViviendas" Refreshing="rvViviendas_Refreshing">
+                <ListView x:Name="lvViv" HasUnevenRows="True"
+                      SeparatorColor="CornflowerBlue" ItemSelected="lvViv_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="Localidad:"></Label>
+                                    <Label Text="{Binding Localidad}"></Label>
+                                    <Label Text="Viviendas ofertadas:"></Label>
+                                    <Label Text="{Binding Ofertadas}"></Label>
+                                    <Label Text="Promotora:"></Label>
+                                    <Label Text="{Binding Promotora}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

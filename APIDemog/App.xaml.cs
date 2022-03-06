@@ -11,7 +11,7 @@ namespace APIDemog
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Inicio());
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

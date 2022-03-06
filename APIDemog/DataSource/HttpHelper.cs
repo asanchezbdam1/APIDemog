@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace APIDemog.DataSource
 {
@@ -43,8 +46,33 @@ namespace APIDemog.DataSource
             {
                 HttpResponseMessage resp = await client.GetAsync("https://datosabiertos.navarra.es/dataset/b5ed4729-1d09-4729-8b71-26ef6e08124f/resource/7bf44c36-6a34-4c12-859e-78b6fbc4e8db/download/solicitudesunidadfamiliar.xml");
                 resp.EnsureSuccessStatusCode();
-                string result = await resp.Content.ReadAsStringAsync();
-                result.ToString();
+                var result = await resp.Content.ReadAsStreamAsync();
+                var data = XDocument.Load(result);
+                var viviendas = from viv in data.Descendants("PROMOCION")
+                                select viv;
+                foreach (var vivienda in viviendas)
+                {
+                    try
+                    {
+                        var viv = new Vivienda()
+                        {
+                            Localidad = vivienda.Descendants("LOCALIDAD").First().Value,
+                            Ofertadas = Int32.Parse(vivienda.Descendants("VIVIENDASOFERTADAS").First().Value),
+                            Promotora = vivienda.Descendants("PROMOTORA").First()
+                                .Descendants("NOMBRE").First().Value
+                        };
+                        if (!String.IsNullOrWhiteSpace(vivienda.Descendants("COORD_UTM_X").First().Value) &&
+                            !String.IsNullOrWhiteSpace(vivienda.Descendants("COORD_UTM_Y").First().Value))
+                        {
+                            viv.Coord_X = Int32.Parse(vivienda.Descendants("COORD_UTM_X").First().Value);
+                            viv.Coord_Y = Int32.Parse(vivienda.Descendants("COORD_UTM_Y").First().Value);
+                            viv.HasCoords = true;
+                        }
+                        lista.Add(viv);
+                    }
+                    catch (Exception ex)
+                    { }
+                }
             }
             return lista;
         }
