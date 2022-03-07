@@ -12,5 +12,8 @@ namespace APIDemog.Model
         public int Coord_X { get; set; }
         public int Coord_Y { get; set; }
         public bool HasCoords { get; set; }
+        public string TelfPromo { get; set; }
+        public string MailPromo { get; set; }
+        public string PagPromo { get; set; }
     }
 }

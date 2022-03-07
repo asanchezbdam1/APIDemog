@@ -3,6 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="APIDemog.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="lblInfo">
+                <Setter Property="TextColor" Value="CornflowerBlue"></Setter>
+                <Setter Property="FontAttributes" Value="Italic"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="lblTag">
+                <Setter Property="TextColor" Value="CornflowerBlue"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

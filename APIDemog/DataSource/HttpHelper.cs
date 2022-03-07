@@ -59,7 +59,13 @@ namespace APIDemog.DataSource
                             Localidad = vivienda.Descendants("LOCALIDAD").First().Value,
                             Ofertadas = Int32.Parse(vivienda.Descendants("VIVIENDASOFERTADAS").First().Value),
                             Promotora = vivienda.Descendants("PROMOTORA").First()
-                                .Descendants("NOMBRE").First().Value
+                                .Descendants("NOMBRE").First().Value,
+                            TelfPromo = vivienda.Descendants("PROMOTORA").First()
+                                .Descendants("TELEFONO").First().Value,
+                            MailPromo = vivienda.Descendants("PROMOTORA").First()
+                                .Descendants("CORREOELECTRONICO").First().Value,
+                            PagPromo = vivienda.Descendants("PROMOTORA").First()
+                                .Descendants("PAGINAWEB").First().Value
                         };
                         if (!String.IsNullOrWhiteSpace(vivienda.Descendants("COORD_UTM_X").First().Value) &&
                             !String.IsNullOrWhiteSpace(vivienda.Descendants("COORD_UTM_Y").First().Value))

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIDemog.Views.DetalleVivienda">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30" Spacing="10">
+                <Label Text="Localidad:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding Localidad}"></Label>
+                <Label Text="Viviendas ofertadas:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding Ofertadas}"></Label>
+                <Label Text="Promotora:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding Promotora}"></Label>
+                <Label Text="Mail de la promotora:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding MailPromo}"></Label>
+                <Label Text="Teléfono de la promotora:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding TelfPromo}"></Label>
+                <Label Text="Página web de la promotora:" Style="{StaticResource Key=lblTag}"></Label>
+                <Label Text="{Binding PagPromo}"></Label>
+                <Button x:Name="btnAbrirUbicacion" IsVisible="{Binding HasCoords}" Text="Abrir ubicación" Clicked="btnAbrirUbicacion_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

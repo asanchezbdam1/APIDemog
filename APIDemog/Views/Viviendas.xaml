@@ -4,8 +4,8 @@
              x:Class="APIDemog.Views.Viviendas">
     <ContentPage.Content>
         <StackLayout>
-            <Label>Viviendas sociales para víctimas de terrorismo, violencia de género, exclusión social, etc.</Label>
-            <Label>Desliza hacia abajo para actualizar.</Label>
+            <Label Style="{StaticResource Key=lblInfo}">Viviendas sociales para víctimas de terrorismo, violencia de género, exclusión social, etc.</Label>
+            <Label Style="{StaticResource Key=lblInfo}">Desliza hacia abajo para actualizar.</Label>
             <RefreshView x:Name="rvViviendas" Refreshing="rvViviendas_Refreshing">
                 <ListView x:Name="lvViv" HasUnevenRows="True"
                       SeparatorColor="CornflowerBlue" ItemSelected="lvViv_ItemSelected">
@@ -13,11 +13,11 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="Localidad:"></Label>
+                                    <Label Text="Localidad:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding Localidad}"></Label>
-                                    <Label Text="Viviendas ofertadas:"></Label>
+                                    <Label Text="Viviendas ofertadas:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding Ofertadas}"></Label>
-                                    <Label Text="Promotora:"></Label>
+                                    <Label Text="Promotora:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding Promotora}"></Label>
                                 </StackLayout>
                             </ViewCell>

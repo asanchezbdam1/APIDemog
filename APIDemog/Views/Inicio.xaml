@@ -4,8 +4,8 @@
              x:Class="APIDemog.Views.Inicio">
     <ContentPage.Content>
         <StackLayout>
-            <Label>Habitantes mayores de edad por Zona Básica de salud.</Label>
-            <Label>Desliza hacia abajo para actualizar.</Label>
+            <Label Style="{StaticResource Key=lblInfo}">Habitantes mayores de edad por Zona Básica de salud.</Label>
+            <Label Style="{StaticResource Key=lblInfo}">Desliza hacia abajo para actualizar.</Label>
             <RefreshView x:Name="rvZonas" Refreshing="rvZonas_Refreshing">
                 <ListView x:Name="lvZonas" HasUnevenRows="True"
                       SeparatorColor="CornflowerBlue" SelectionMode="None">
@@ -13,11 +13,11 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="Zona básica:"></Label>
+                                    <Label Text="Zona básica:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding NombreZona}"></Label>
-                                    <Label Text="Habitantes mayores de 14 años:"></Label>
+                                    <Label Text="Habitantes mayores de 14 años:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding HabMayores}"></Label>
-                                    <Label Text="Habitantes totales:"></Label>
+                                    <Label Text="Habitantes totales:" Style="{StaticResource Key=lblTag}"></Label>
                                     <Label Text="{Binding HabTotales}"></Label>
                                 </StackLayout>
                             </ViewCell>
